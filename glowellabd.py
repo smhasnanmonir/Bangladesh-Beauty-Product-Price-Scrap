@@ -18,14 +18,6 @@ async def run_playwright():
             print(f"Visiting page {page_number}...")
             url = f'https://glowellabd.com/product-category/skin-care/page/{page_number}'
             await page.goto(url)
-
-            try:
-                # Wait for products to load
-                await page.wait_for_selector("h3.wd-entities-title a", timeout=10000)
-            except Exception:
-                print("No products found or page does not exist. Stopping.")
-                break
-
             # Extract product names and prices
             try:
                 products = await page.query_selector_all("h3.wd-entities-title a")

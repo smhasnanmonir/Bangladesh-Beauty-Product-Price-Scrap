@@ -17,6 +17,8 @@ async def run_playwright():
             print(f"Fetching page {page_number}: {url}")
             await page.goto(url)
 
+            await asyncio.sleep(5)
+
             # Get all products on the page
             product_names = await page.query_selector_all('h5.mkd-product-list-title a')
             product_prices = await page.query_selector_all('span.price bdi')

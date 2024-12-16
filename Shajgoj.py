@@ -12,10 +12,6 @@ async def run_playwright():
         # Go to the page
         await page.goto('https://shop.shajgoj.com/product-category/body-1?page=1')
 
-        # Get and print the page title
-        title = await page.title()
-        print(f"Page title: {title}")
-
         products_list = []
 
         # Wait for the product container to load
